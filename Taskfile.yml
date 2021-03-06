@@ -1,0 +1,25 @@
+---
+version: "3"
+
+tasks:
+  default:
+    cmds:
+      - task --list
+
+  lint:
+    desc: lint files
+    cmds:
+      - yamllint -c .github/lint/.yamllint.yml .
+      - mdl --config .github/lint/.mdlrc --style .github/lint/.mdl.rb .
+      - pre-commit run --all-files
+
+  pretty:
+    desc: fix errors
+    cmds:
+      - prettier --parser=markdown --write '*.md' '**/*.md' || true
+      - prettier --parser=yaml --write '*.y*ml' '**/*.y*ml' || true
+
+  gh:
+    cmds:
+      - act --graph
+      - act --job lint
