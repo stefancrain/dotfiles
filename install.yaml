@@ -1,0 +1,56 @@
+---
+- defaults:
+    link:
+      relink: true
+      create: true
+
+- link:
+    # ~/.vim: vim
+    # ~/.vimrc: vimrc
+    ~/.tmux.conf:
+      path: tmux.conf
+    ~/.aria2/aria2.conf:
+      path: aria2.conf
+    ~/.config/starship.toml:
+      path: starship.toml
+    ~/.config/fish/functions:
+      glob: true
+      path: fish/functions/*
+    ~/.config/fish/config.fish:
+      path: fish/config.fish
+
+# - create:
+#     - ~/Downloads/
+#     - ~/Code/
+#     - ~/Code/setup/
+#     - ~/Code/infra/
+#     - ~/Code/k8s/
+#     - ~/Code/containers/
+#     - ~/Code/web/
+#     - ~/.vim/undo-history
+
+- shell:
+    - command: curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+      description: fisher install
+    - command: fisher install jorgebucaran/spark.fish
+      description: spark-lines
+    - command: fisher install jorgebucaran/nvm.fish
+      description: NVM
+    - command: fisher install evanlucas/fish-kubectl-completions
+      description: kubectl
+    - command: fisher install patrickf3139/fzf.fish
+      description: FZF
+    - command: fisher install danhper/fish-ssh-agent
+      description: ssh-agent
+    - command: fisher install decors/fish-colored-man
+      description: man with color
+    - command: fisher install oh-my-fish/plugin-bang-bang
+      description: sudo ezpz
+    - command: fisher install edc/bass
+      description: bash in fish
+    - command: fisher install wfxr/forgit
+      description: FZF for git
+    - command: fisher install jethrokuan/z
+      description: Z directory tool
+    - command: fisher install franciscolourenco/done
+      description: terminal alert
