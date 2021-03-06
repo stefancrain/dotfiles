@@ -7,6 +7,8 @@
 - link:
     # ~/.vim: vim
     # ~/.vimrc: vimrc
+    ~/.curlrc:
+      path: .curlrc
     ~/.tmux.conf:
       path: tmux.conf
     ~/.aria2/aria2.conf:
