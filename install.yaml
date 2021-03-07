@@ -21,6 +21,9 @@
     ~/.config/fish/config.fish:
       path: fish/config.fish
 
+    ~/.gitignore:
+      path: .global-gitignore
+
 # - create:
 #     - ~/Downloads/
 #     - ~/Code/
@@ -56,3 +59,6 @@
       description: Z directory tool
     - command: fisher install franciscolourenco/done
       description: terminal alert
+
+    - command: git config --global core.excludesfile ~/.gitignore
+      description: global gitignore

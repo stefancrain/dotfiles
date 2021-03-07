@@ -12,8 +12,6 @@ repos:
       - id: check-merge-conflict
       - id: check-executables-have-shebangs
       - id: detect-private-key
-      - id: no-commit-to-branch
-        args: ["--branch", "main"]
 
   - repo: https://github.com/adrienverge/yamllint.git
     rev: v1.25.0
@@ -36,7 +34,7 @@ repos:
       - id: hadolint
         args:
           - --config
-          - ".hadolint.yaml"
+          - ".github/lint/.hadolint.yaml"
 
   - repo: https://github.com/jumanjihouse/pre-commit-hooks
     rev: 2.1.5
