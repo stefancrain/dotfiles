@@ -1,0 +1,46 @@
+[branch "main"]
+    merge = main
+
+[init]
+    defaultBranch = main
+
+[color]
+
+    # Use colors in Git commands that are capable of colored output when
+    # outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
+    ui = auto
+
+[color "branch"]
+
+    current = yellow reverse
+    local = yellow
+    remote = green
+
+[color "diff"]
+
+    meta = yellow bold
+    frag = magenta bold # line info
+    old = red # deletions
+    new = green # additions
+
+[color "status"]
+
+    added = yellow
+    changed = green
+    untracked = cyan
+
+
+[commit]
+
+    # https://help.github.com/articles/signing-commits-using-gpg/
+    gpgsign = true
+    template = ~/.gitmessage
+
+[gpg]
+
+    program = gpg2
+[core]
+    excludesfile = /home/stefan/.gitignore
+[user]
+    name = Stefan Crain
+    email = stefan.crain@gmail.com

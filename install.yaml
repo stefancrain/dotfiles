@@ -1,28 +1,42 @@
 ---
 - defaults:
     link:
-      relink: true
-      create: true
+      relink: true # remove old linked file
+      create: true # create parent dirs
 
 - link:
-    # ~/.vim: vim
-    # ~/.vimrc: vimrc
+    # download
     ~/.curlrc:
       path: .curlrc
-    ~/.tmux.conf:
-      path: tmux.conf
     ~/.aria2/aria2.conf:
       path: aria2.conf
+
+    # terminal
+    ~/.tmux.conf:
+      path: tmux.conf
+
+    # prompt
     ~/.config/starship.toml:
       path: starship.toml
+
+    # fish
     ~/.config/fish/functions:
       glob: true
       path: fish/functions/*
     ~/.config/fish/config.fish:
       path: fish/config.fish
 
+    # git
     ~/.gitignore:
       path: .global-gitignore
+    ~/.gitconfig:
+      path: .gitconfig
+    ~/.gitmessage:
+      path: .gitmessage
+
+    # editor
+    ~/.vimrc: vimrc
+
 
 # - create:
 #     - ~/Downloads/
@@ -43,8 +57,10 @@
       description: NVM
     - command: fisher install evanlucas/fish-kubectl-completions
       description: kubectl
+
     - command: fisher install patrickf3139/fzf.fish
-      description: FZF
+      description:
+
     - command: fisher install danhper/fish-ssh-agent
       description: ssh-agent
     - command: fisher install decors/fish-colored-man
@@ -62,3 +78,9 @@
 
     - command: git config --global core.excludesfile ~/.gitignore
       description: global gitignore
+    - command: git config --global --add commit.template '~/.gitmessage'
+      description: global gitmessage
+    - command: git config --global user.name "Stefan Crain"
+      description: global user
+    - command: git config --global user.email "stefan.crain@gmail.com"
+      description: global user
