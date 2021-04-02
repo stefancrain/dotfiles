@@ -1,7 +1,9 @@
 [branch "main"]
+
     merge = main
 
 [init]
+
     defaultBranch = main
 
 [color]
@@ -39,8 +41,12 @@
 [gpg]
 
     program = gpg2
+
 [core]
-    excludesfile = /home/stefan/.gitignore
+
+    excludesfile = ~/.gitignore
+
 [user]
-    name = Stefan Crain
-    email = stefan.crain@gmail.com
+
+    name = {{ .name }}
+    email = {{ .email }}
