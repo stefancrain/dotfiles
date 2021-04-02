@@ -9,7 +9,8 @@ blindly use my settings unless you know what that entails. Use at your own risk!
 ```bash
 git clone https://github.com/stefancrain/dotfiles
 cd dotfiles
-dotbot -c install.yaml
+chezmoi init --source ~/Code/.dotfiles git@github.com:stefancrain/dotfiles.git
+chezmoi apply
 ```
 
 ## Requirements
