@@ -26,4 +26,3 @@ chezmoi apply
 - [fd-find](https://github.com/sharkdp/fd) version 8.1.1+
 - [bat-cat](https://github.com/sharkdp/bat) version 0.18.0+
 - [starship](https://starship.rs/) version 0.50.0+
-- [dotbot](https://pypi.org/project/dotbot/) version 1.18.0+
