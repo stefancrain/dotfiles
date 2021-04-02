@@ -4,13 +4,15 @@ starship init fish | source
 direnv hook fish | source
 flux completion fish | source
 helm completion fish | source
+thefuck --alias | source
 
 {{- if (eq .chezmoi.os "android") }}
+
 fish_add_path /data/data/com.termux/files/home/.cargo/bin
 fish_add_path /data/data/com.termux/files/home/.krew/bin
-{{- else if (eq .chezmoi.os "darwin") }}
-test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 
+{{- else if (eq .chezmoi.os "darwin") }}
+# $PATH managment
 fish_add_path "/usr/local/opt/gettext/bin"
 fish_add_path "/usr/local/opt/libiconv/bin"
 fish_add_path "/usr/local/opt/findutils/libexec/gnubin"
@@ -20,18 +22,15 @@ fish_add_path "/Users/devin/.jenv/bin"
 fish_add_path "/usr/local/opt/ruby@2.7/bin"
 fish_add_path "/usr/local/sbin"
 
-thefuck --alias | source
-status --is-interactive; and source (jenv init -|psub)
-{{- end }}
-
-
-# ~/.config/fish/config.fish
-
-# $PATH managment
 fish_add_path /usr/local/bin
 fish_add_path /usr/local/sbin
 fish_add_path /usr/local/opt/qt/bin
 fish_add_path ~/.local/bin
+
+
+status --is-interactive; and source (jenv init -|psub)
+{{- end }}
+
 
 # kubectl via evanlucas/fish-kubectl-completions
 complete --command aws --no-files --arguments '(begin; set --local --export COMP_SHELL fish; set --local --export COMP_LINE (commandline); aws_completer | sed \'s/ $//\'; end)'

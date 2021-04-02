@@ -4,7 +4,7 @@
 {{- $work := promptString "Is this a work device? (y/n)" -}}
 
 format: json
-sourceDir: Code/.dotfiles
+sourceDir: {{ .chezmoi.homeDir }}/Code/.dotfiles
 
 data:
   name: "{{ $name }}"
@@ -13,6 +13,8 @@ data:
   work: "{{ $work }}"
   {{- if (eq .chezmoi.os "linux") }}
   bash: "/usr/bin/bash"
+  gpg: "/usr/bin/gpg2"
   {{- else if (eq .chezmoi.os "darwin") }}
   bash: "/usr/local/bin/bash"
+  gpg: "/usr/local/MacGPG2/bin/gpg2"
   {{- end }}
