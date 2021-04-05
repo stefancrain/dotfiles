@@ -30,7 +30,6 @@ us-east-2 = "Ohio"
 us-west-1 = "N. California"
 us-west-2 = "Oregon"
 
-
 [username]
 disabled = false
 show_always = true
@@ -46,7 +45,6 @@ use_symbol_for_status = true
 [cmd_duration]
 min_time = 500
 
-
 [directory]
 truncation_length = 5
 truncate_to_repo = true
@@ -54,7 +52,6 @@ truncate_to_repo = true
 # Disable the package module, hiding it from the prompt completely
 [package]
 disabled = true
-
 
 [git_status]
 conflicted = "🏳"
@@ -67,3 +64,11 @@ modified = "📝"
 staged = '[++\($count\)](green)'
 renamed = "👅"
 deleted = "🗑"
+
+[kubernetes]
+symbol = "ﴱ "
+format = 'on [ﴱ $context \($namespace\)](bold bright-green) '
+disabled = false
+
+[kubernetes.context_aliases]
+"default" = "home-cluster"

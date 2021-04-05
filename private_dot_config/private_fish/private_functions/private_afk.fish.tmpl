@@ -1,4 +1,3 @@
-{{- if not (contains "termux" .chezmoi.homeDir) }}
 function afk --description 'Lock the box'
 {{- if (eq .chezmoi.os "linux") }}
     command sudo systemctl suspend
@@ -6,4 +5,3 @@ function afk --description 'Lock the box'
     open -b com.apple.ScreenSaver.Engine
 {{- end }}
 end
-{{- end }}
