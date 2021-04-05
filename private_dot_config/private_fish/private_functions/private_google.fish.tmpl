@@ -1,0 +1,7 @@
+function google --description 'Google Search'
+{{- if (eq .chezmoi.os "linux") }}
+    sensible-browser "https://www.google.com/search?q="$argv
+{{- else if (eq .chezmoi.os "darwin") }}
+    open "https://www.google.com/search?q="$argv
+{{- end }}
+end
