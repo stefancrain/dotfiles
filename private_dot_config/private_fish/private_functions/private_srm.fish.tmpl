@@ -1,0 +1,7 @@
+function srm --description 'secure delete'
+{{- if (eq .chezmoi.os "linux") }}
+    srm -v $argvc
+{{- else if (eq .chezmoi.os "darwin") }}
+    rm -v -P $argv
+{{- end }}
+end
