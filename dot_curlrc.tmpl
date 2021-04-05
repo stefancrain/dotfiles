@@ -1,0 +1,17 @@
+{{- if (eq .chezmoi.os "linux") }}
+# Disguise as FF on Ubuntu
+user-agent = "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:87.0) Gecko/20100101 Firefox/87.0"
+{{- else if (eq .chezmoi.os "darwin") }}
+# Disguise as FF on macOS
+user-agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 11.2; rv:87.0) Gecko/20100101 Firefox/87.0"
+{{- end }}
+
+# When following a redirect, automatically set the previous URL as referer.
+referer = ";auto"
+
+# Retrying
+connect-timeout = 60
+max-time 120
+retry 3
+retry-delay 0
+retry-max-time 60
