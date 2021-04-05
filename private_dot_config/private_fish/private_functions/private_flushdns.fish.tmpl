@@ -1,0 +1,7 @@
+function flushdns --description "Reset DNS Cache"
+{{- if (eq .chezmoi.os "linux") }}
+    command sudo systemd-resolve --flush-caches
+{{- else if (eq .chezmoi.os "darwin") }}
+    command sudo killall -HUP mDNSResponder
+{{- end }}
+end

@@ -1,0 +1,8 @@
+function cpwd --description 'Copy the current directory path to the clipboard'
+{{- if (eq .chezmoi.os "linux") }}
+    pwd | tr -d "\n" | xclip -selection clipboard $argv
+{{- else if (eq .chezmoi.os "darwin") }}
+    pwd | tr -d "\n" | pbcopy $argv
+{{- end }}
+end
+ 
