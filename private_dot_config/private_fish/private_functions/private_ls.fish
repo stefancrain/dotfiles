@@ -1,10 +1,9 @@
 function ls --description 'List directory contents'
-    switch (uname)
-        case Linux
-            command ls --color=auto $argv
-        case Darwin
-            command ls -G $argv
-        case '*'
-            command ls $argv
-    end
+{{- if (eq .chezmoi.os "linux") }}
+    command ls --color=auto $argv
+{{- else if (eq .chezmoi.os "darwin") }}
+    command ls -G $argv
+{{- else }}
+    command ls $argv
+{{- end }}
 end
