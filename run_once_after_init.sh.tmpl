@@ -1,17 +1,20 @@
 #!/usr/bin/env fish
 
-chezmoi completion fish --output ~/.config/fish/completions/chezmoi.fish
-
 curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 
-fisher install jorgebucaran/spark.fish
-fisher install jorgebucaran/nvm.fish
-fisher install evanlucas/fish-kubectl-completions
-fisher install patrickf3139/fzf.fish
 fisher install danhper/fish-ssh-agent
 fisher install decors/fish-colored-man
-fisher install oh-my-fish/plugin-bang-bang
 fisher install edc/bass
-fisher install wfxr/forgit
-fisher install jethrokuan/z
+fisher install evanlucas/fish-kubectl-completions
 fisher install franciscolourenco/done
+fisher install jethrokuan/z
+fisher install jorgebucaran/fisher
+fisher install jorgebucaran/nvm.fish
+fisher install jorgebucaran/spark.fish
+fisher install oh-my-fish/plugin-bang-bang
+fisher install patrickf3139/fzf.fish
+fisher install wfxr/forgit
+
+chezmoi completion fish --output ~/.config/fish/completions/chezmoi.fish
+flux completion fish > ~/.config/fish/completions/flux.fish
+helm completion fish > ~/.config/fish/completions/helm.fish
