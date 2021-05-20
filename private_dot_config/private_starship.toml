@@ -4,7 +4,6 @@ add_newline = false
 [aws]
 format = "on [$symbol$profile( $region)]($style) "
 style = "bold Yellow"
-displayed_items = "region"
 symbol = "☁️ "
 
 [aws.region_aliases]
@@ -37,10 +36,8 @@ style_root = "bold green"
 style_user = "bold green"
 
 [character]
-success_symbol = '🦑 ❯'
-error_symbol = "🔥 ❯"
-style_success = "bold black"
-use_symbol_for_status = true
+success_symbol = '🦑 ❯(bold black)'
+error_symbol = "🔥 ❯(bold red)"
 
 [cmd_duration]
 min_time = 500
