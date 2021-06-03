@@ -20,8 +20,14 @@ chezmoi apply
 
 ## Requirements
 
+### shell
+
 - [fish-shell](https://github.com/fish-shell/fish-shell) version 3.2+
+- [starship](https://starship.rs/) version 0.50.0+
 - [fzf](https://github.com/junegunn/fzf) version 0.25.1+
 - [fd-find](https://github.com/sharkdp/fd) version 8.1.1+
 - [bat-cat](https://github.com/sharkdp/bat) version 0.18.0+
-- [starship](https://starship.rs/) version 0.50.0+
+
+### K8S
+
+- [kubecolor](https://github.com/dty1er/kubecolor)
