@@ -9,7 +9,7 @@ blindly use my settings unless you know what that entails. Use at your own risk!
 ### chezmoi
 
 - [install chezmoi](https://www.chezmoi.io/docs/install/)
-- [install deps](./README.MD#Requirements)
+- [install deps](#requirements)
 - Run first time setup:
 
 ```bash
