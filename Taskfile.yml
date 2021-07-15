@@ -9,13 +9,14 @@ tasks:
   lint:
     desc: lint files
     cmds:
-      - yamllint -c .github/lint/.yamllint.yml .
-      - mdl --config .github/lint/.mdlrc --style .github/lint/.mdl.rb .
+      - yamllint -c '.github/lint/.yamllint.yml' .
+      - markdownlint -c '.github/lint/.markdownlint.yml' *.md **/*.md .github/**/*.md
 
   pretty:
     desc: fix errors
     cmds:
-      - prettier --config ".github/lint/.prettierrc.yaml" --write --list-different --ignore-unknown .
+      - prettier --config '.github/lint/.prettierrc.yml' --write --list-different --ignore-unknown --parser=markdown --write '*.md' '**/*.md' || true
+      - prettier --config '.github/lint/.prettierrc.yml' --write --list-different --ignore-unknown --parser=yaml --write '*.y*ml' '**/*.y*ml' || true
 
   pre-commit:
     desc: run pre-commit verbosely
