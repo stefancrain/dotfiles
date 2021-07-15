@@ -1,5 +1,5 @@
 ---
-version: "3"
+version: '3'
 
 tasks:
   default:
@@ -11,15 +11,13 @@ tasks:
     cmds:
       - yamllint -c .github/lint/.yamllint.yml .
       - mdl --config .github/lint/.mdlrc --style .github/lint/.mdl.rb .
-      - pre-commit run --all-files
 
   pretty:
     desc: fix errors
     cmds:
-      - prettier --parser=markdown --write '*.md' '**/*.md' || true
-      - prettier --parser=yaml --write '*.y*ml' '**/*.y*ml' || true
+      - prettier --config ".github/lint/.prettierrc.yaml" --write --list-different --ignore-unknown .
 
-  gh:
+  pre-commit:
+    desc: run pre-commit verbosely
     cmds:
-      - act --graph
-      - act --job lint
+      - pre-commit run --all-files --show-diff-on-failure

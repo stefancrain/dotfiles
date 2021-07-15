@@ -1,3 +1,5 @@
 Taskfile.yml
 README.md
 LICENSE-MIT.txt
+Brewfile
+.gitignore

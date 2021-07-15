@@ -1,9 +1,9 @@
 ---
 yaml-files:
-  - "*.yaml"
-  - "*.yml"
-  - ".yamllint"
-  - ".yamllint.yml"
+  - '*.yaml'
+  - '*.yml'
+  - '.yamllint'
+  - '.yamllint.yml'
 
 rules:
   braces:
@@ -34,4 +34,4 @@ rules:
   trailing-spaces: enable
   truthy:
     level: warning
-    allowed-values: ["true", "false", "on"]
+    allowed-values: ['true', 'false', 'on']

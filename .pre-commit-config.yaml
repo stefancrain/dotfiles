@@ -21,10 +21,11 @@ repos:
       - id: prettier
         args:
           - --config
-          - ".github/lint/.prettierrc.yaml"
+          - '.github/lint/.prettierrc.yaml'
           - --write
           - --list-different
           - --ignore-unknown
+          # - --loglevel=debug
 
   - repo: https://github.com/adrienverge/yamllint.git
     rev: v1.25.0
@@ -32,7 +33,7 @@ repos:
       - id: yamllint
         args:
           - -c
-          - ".github/lint/.yamllint.yml"
+          - '.github/lint/.yamllint.yml'
 
   - repo: https://github.com/Lucas-C/pre-commit-hooks
     rev: v1.1.10

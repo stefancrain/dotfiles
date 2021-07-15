@@ -1,9 +1,9 @@
 ---
 name: "\U0001F41B New issue for Reproducible Bug"
 about: Report a bug or unexpected behavior while using these dotfiles
-title: ""
+title: ''
 labels: bug
-assignees: ""
+assignees: ''
 ---
 
 # Please note we will close your issue without comment if you delete, do not read or do not fill out the issue checklist below and provide ALL the requested information. If you repeatedly fail to use the issue template, we will block you.

@@ -17,6 +17,7 @@ jobs:
           fetch-depth: 1
 
       - name: yaml-lint
-        uses: karancode/yamllint-github-action@master
+        uses: ibiqlik/action-yamllint@v3
         with:
+          file_or_dir: .
           yamllint_config_filepath: .github/lint/.yamllint.yml
