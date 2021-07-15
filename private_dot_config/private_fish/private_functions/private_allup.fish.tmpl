@@ -1,0 +1,30 @@
+function allup --description 'a all system packages'
+{{- if (eq .chezmoi.os "linux") }}
+
+    #TODO: add switch for linux flavors
+    sudo apt update
+    sudo apt upgrade
+
+{{- else if (eq .chezmoi.os "darwin") }}
+
+    # macos
+    sudo softwareupdate --install --all --verbose
+
+    # brew
+    brew update
+    brew upgrade
+
+{{- end }}
+
+    # python pip
+    python3 -m pip install -U pip
+    python3 -m pip install -U setuptools
+    pip3 freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install -U
+
+    # nodejs npm
+    sudo npm install -g npm
+    for package in (npm -g outdated --parseable --depth=0 | cut -d: -f2)
+        sudo npm -g install "$package"
+    end
+
+end

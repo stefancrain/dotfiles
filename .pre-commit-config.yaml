@@ -12,6 +12,19 @@ repos:
       - id: check-merge-conflict
       - id: check-executables-have-shebangs
       - id: detect-private-key
+      - id: detect-aws-credentials
+      - id: check-merge-conflict
+
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v2.3.2
+    hooks:
+      - id: prettier
+        args:
+          - --config
+          - ".github/lint/.prettierrc.yaml"
+          - --write
+          - --list-different
+          - --ignore-unknown
 
   - repo: https://github.com/adrienverge/yamllint.git
     rev: v1.25.0
@@ -26,15 +39,6 @@ repos:
     hooks:
       - id: remove-crlf
       - id: remove-tabs
-
-  - repo: https://github.com/IamTheFij/docker-pre-commit.git
-    rev: v2.0.0
-    hooks:
-      - id: docker-compose-check
-      - id: hadolint
-        args:
-          - --config
-          - ".github/lint/.hadolint.yaml"
 
   - repo: https://github.com/jumanjihouse/pre-commit-hooks
     rev: 2.1.5
