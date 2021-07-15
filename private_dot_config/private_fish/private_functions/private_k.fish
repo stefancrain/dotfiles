@@ -1,3 +1,3 @@
 function k --wraps=kubectl --description 'kubectl shorthand'
-  kubecolor $argv
+  kubecolor $argv -o wide
 end
