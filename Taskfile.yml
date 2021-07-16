@@ -9,8 +9,9 @@ tasks:
   lint:
     desc: lint files
     cmds:
-      - yamllint -c '.github/lint/.yamllint.yml' .
-      - markdownlint -c '.github/lint/.markdownlint.yml' *.md **/*.md .github/**/*.md
+      - yamllint -c '.github/lint/.yamllint.yml' . || true
+      - markdownlint -c '.github/lint/.markdownlint.yml' *.md **/*.md .github/**/*.md || true
+      - prettier --config '.github/lint/.prettierrc.yml' --check .
 
   pretty:
     desc: fix errors
@@ -18,7 +19,12 @@ tasks:
       - prettier --config '.github/lint/.prettierrc.yml' --write --list-different --ignore-unknown --parser=markdown --write '*.md' '**/*.md' || true
       - prettier --config '.github/lint/.prettierrc.yml' --write --list-different --ignore-unknown --parser=yaml --write '*.y*ml' '**/*.y*ml' || true
 
+  security:
+    desc: no leaks please
+    cmds:
+      - talisman --scan
+
   pre-commit:
     desc: run pre-commit verbosely
     cmds:
-      - pre-commit run --all-files --show-diff-on-failure
+      - pre-commit run --all-files

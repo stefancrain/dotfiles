@@ -3,17 +3,15 @@ repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.0.1
     hooks:
-      - id: trailing-whitespace
-      - id: end-of-file-fixer
-      - id: fix-byte-order-marker
-      - id: mixed-line-ending
       - id: check-added-large-files
         args: [--maxkb=2048]
-      - id: check-merge-conflict
       - id: check-executables-have-shebangs
-      - id: detect-private-key
-      - id: detect-aws-credentials
       - id: check-merge-conflict
+      - id: check-merge-conflict
+      # - id: check-shebang-scripts-are-executable
+      - id: detect-aws-credentials
+      - id: detect-private-key
+      - id: fix-byte-order-marker
 
   - repo: https://github.com/pre-commit/mirrors-prettier
     rev: v2.3.2
@@ -32,7 +30,7 @@ repos:
     hooks:
       - id: yamllint
         args:
-          - -c
+          - --config-file
           - '.github/lint/.yamllint.yml'
 
   - repo: https://github.com/igorshubovych/markdownlint-cli
@@ -40,24 +38,10 @@ repos:
     hooks:
       - id: markdownlint
         args:
-          - -c
+          - --config
           - '.github/lint/.markdownlint.yml'
 
-  - repo: https://github.com/Lucas-C/pre-commit-hooks
-    rev: v1.1.10
+  - repo: https://github.com/thoughtworks/talisman
+    rev: v1.20.0
     hooks:
-      - id: remove-crlf
-      - id: remove-tabs
-
-  - repo: https://github.com/jumanjihouse/pre-commit-hooks
-    rev: 2.1.5
-    hooks:
-      - id: shellcheck
-        language: script
-        args: [--severity=error]
-        additional_dependencies: []
-
-  - repo: https://github.com/sirosen/fix-smartquotes
-    rev: 0.2.0
-    hooks:
-      - id: fix-smartquotes
+      - id: talisman-commit
