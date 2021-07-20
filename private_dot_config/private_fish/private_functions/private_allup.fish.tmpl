@@ -14,6 +14,9 @@ function allup --description 'a all system packages'
     brew update
     brew upgrade
 
+    # cask update
+    brew cu --all --force --yes
+
 {{- end }}
 
     # python pip
