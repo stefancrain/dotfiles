@@ -1,7 +1,13 @@
+# Exports
 set -gx DATASTORE_TYPE kubernetes
+set -x LC_ALL en_US.UTF-8
+set -x LANG en_US.UTF-8
+set -x LANGUAGE en_US.UTF-8
 
 starship init fish | source
 direnv hook fish | source
+
+set -x GPG_TTY (tty)
 
 {{- if (eq .chezmoi.os "darwin") }}
 # $PATH managment
