@@ -38,7 +38,7 @@ brew "gzip"
 brew "hadolint"
 brew "helm"
 brew "ipcalc"
-brew "inetutils"
+brew "inetutils", link: true
 brew "jenv"
 brew "jq"
 brew "kubernetes-cli"
