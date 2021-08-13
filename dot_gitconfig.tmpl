@@ -26,12 +26,12 @@
     newHighlight = green bold 22
 
 [color "diff"]
-        meta = yellow
-        frag = magenta bold
-        commit = yellow bold
-        old = red bold
-        new = green bold
-        whitespace = red reverse
+    meta = yellow
+    frag = magenta bold
+    commit = yellow bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
 
 [color "status"]
 
@@ -48,7 +48,7 @@
 
 [gpg]
 
-    program = {{ .gpg }}
+    program = {{ .gpg  | quote }}
 
 [core]
 
@@ -57,8 +57,8 @@
 
 [user]
 
-    name = {{ .name }}
-    email = {{ .email }}
+    name = {{ .name | quote }}
+    email = {{ .email | quote }}
 
 [alias]
 
