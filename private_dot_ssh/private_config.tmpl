@@ -8,8 +8,3 @@ Host *
   IgnoreUnknown UseKeychain
   UseKeychain yes
 {{- end }}
-
-# rfc1918
-Match Address 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16
-  StrictHostKeyChecking no
-  UserKnownHostsFile /dev/null

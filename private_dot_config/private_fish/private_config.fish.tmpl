@@ -1,32 +1,32 @@
 # Exports
-set -gx DATASTORE_TYPE kubernetes
 set -x LC_ALL en_US.UTF-8
 set -x LANG en_US.UTF-8
 set -x LANGUAGE en_US.UTF-8
 
-starship init fish | source
-direnv hook fish | source
-
+set -gx DATASTORE_TYPE kubernetes
 set -x GPG_TTY (tty)
 
+starship init fish | source
+direnv hook fish | source
+zoxide init fish | source
+
 {{- if (eq .chezmoi.os "darwin") }}
-# $PATH managment
 fish_add_path "/usr/local/opt/gettext/bin"
 fish_add_path "/usr/local/opt/libiconv/bin"
 fish_add_path "/usr/local/opt/findutils/libexec/gnubin"
 fish_add_path "/usr/local/opt/coreutils/libexec/gnubin"
 fish_add_path "/usr/local/opt/grep/libexec/gnubin"
-fish_add_path "/Users/devin/.jenv/bin"
 fish_add_path "/usr/local/opt/ruby@2.7/bin"
-fish_add_path "/usr/local/sbin"
 fish_add_path "/usr/local/opt/inetutils/libexec/gnubin"
+fish_add_path "/usr/local/opt/qt/bin"
+{{ else if (eq .chezmoi.os "linux" ) }}
+if status --is-interactive
+  eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+end
+{{- end }}
 
 fish_add_path /usr/local/bin
 fish_add_path /usr/local/sbin
-fish_add_path /usr/local/opt/qt/bin
 fish_add_path ~/.local/bin
-
-status --is-interactive; and source (jenv init -|psub)
-{{- end }}
 
 complete --command aws --no-files --arguments '(begin; set --local --export COMP_SHELL fish; set --local --export COMP_LINE (commandline); aws_completer | sed \'s/ $//\'; end)'

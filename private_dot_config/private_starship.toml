@@ -69,3 +69,8 @@ disabled = false
 
 [kubernetes.context_aliases]
 "default" = "home-cluster"
+
+[shell]
+fish_indicator = "🦈"
+bash_indicator = "🌞"
+disabled = false
