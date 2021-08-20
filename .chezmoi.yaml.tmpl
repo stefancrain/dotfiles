@@ -1,16 +1,24 @@
-{{- $email := promptString "email" -}}
-{{- $name := promptString "name" -}}
-{{- $personal := promptString "Is this a personal device? (y/n)" -}}
-{{- $work := promptString "Is this a work device? (y/n)" -}}
+{{- $user_email := "" -}}
+{{- $user_name := "" -}}
+{{- $personal := false -}}
 
-format: json
+{{ if stdinIsATTY }}
+{{- $user_email = promptString "user_email" | quote -}}
+{{- $user_name = promptString "user_name" | quote -}}
+{{- $personal = promptBool "Is this a personal device? (y/n)" -}}
+{{- else }}
+{{- $user_email = env "USER_EMAIL" | quote -}}
+{{- $user_name = env "USER_NAME" | quote -}}
+{{- $personal = "y" -}}
+{{ end }}
+
+format: yaml
 sourceDir: {{ .chezmoi.homeDir }}/Code/.dotfiles
 
 data:
-  name: "{{ $name }}"
-  email: "{{ $email }}"
-  personal: "{{ $personal }}"
-  work: "{{ $work }}"
+  email: {{ $user_email }}
+  name: {{ $user_name }}
+  personal: {{ $personal }}
   {{- if (eq .chezmoi.os "linux") }}
   bash: "/usr/bin/bash"
   gpg: "/usr/bin/gpg2"
