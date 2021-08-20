@@ -6,10 +6,6 @@ set -x LANGUAGE en_US.UTF-8
 set -gx DATASTORE_TYPE kubernetes
 set -x GPG_TTY (tty)
 
-starship init fish | source
-direnv hook fish | source
-zoxide init fish | source
-
 {{- if (eq .chezmoi.os "darwin") }}
 fish_add_path "/usr/local/opt/gettext/bin"
 fish_add_path "/usr/local/opt/libiconv/bin"
@@ -21,12 +17,21 @@ fish_add_path "/usr/local/opt/inetutils/libexec/gnubin"
 fish_add_path "/usr/local/opt/qt/bin"
 {{ else if (eq .chezmoi.os "linux" ) }}
 if status --is-interactive
-  eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+  set -gx HOMEBREW_PREFIX "/home/linuxbrew/.linuxbrew";
+  set -gx HOMEBREW_CELLAR "/home/linuxbrew/.linuxbrew/Cellar";
+  set -gx HOMEBREW_REPOSITORY "/home/linuxbrew/.linuxbrew/Homebrew";
+  set -g fish_user_paths "/home/linuxbrew/.linuxbrew/bin" "/home/linuxbrew/.linuxbrew/sbin" $fish_user_paths;
+  set -q MANPATH; or set MANPATH ''; set -gx MANPATH "/home/linuxbrew/.linuxbrew/share/man" $MANPATH;
+  set -q INFOPATH; or set INFOPATH ''; set -gx INFOPATH "/home/linuxbrew/.linuxbrew/share/info" $INFOPATH;
 end
 {{- end }}
 
 fish_add_path /usr/local/bin
 fish_add_path /usr/local/sbin
 fish_add_path ~/.local/bin
+
+starship init fish | source
+direnv hook fish | source
+zoxide init fish | source
 
 complete --command aws --no-files --arguments '(begin; set --local --export COMP_SHELL fish; set --local --export COMP_LINE (commandline); aws_completer | sed \'s/ $//\'; end)'
