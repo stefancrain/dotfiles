@@ -7,7 +7,7 @@ FROM prom/alertmanager:v0.23.0 as prom-am
 ####################################### ---
 
 # Runtime
-FROM nvcr.io/nvidia/cuda:11.4.1-runtime-ubuntu20.04
+FROM nvcr.io/nvidia/cuda:11.4.2-runtime-ubuntu20.04
 
 ENV \
     USER_NAME="Stefan Crain" \
