@@ -7,14 +7,22 @@ set -gx DATASTORE_TYPE kubernetes
 set -x GPG_TTY (tty)
 
 {{- if (eq .chezmoi.os "darwin") }}
-fish_add_path "/usr/local/opt/gettext/bin"
-fish_add_path "/usr/local/opt/libiconv/bin"
-fish_add_path "/usr/local/opt/findutils/libexec/gnubin"
-fish_add_path "/usr/local/opt/coreutils/libexec/gnubin"
-fish_add_path "/usr/local/opt/grep/libexec/gnubin"
-fish_add_path "/usr/local/opt/ruby@2.7/bin"
-fish_add_path "/usr/local/opt/inetutils/libexec/gnubin"
-fish_add_path "/usr/local/opt/qt/bin"
+
+{{- $brew_prefix := "/usr/local" -}}
+{{- if (eq .chezmoi.arch "arm64") }}
+{{- $brew_prefix = "/opt/homebrew" -}}
+{{- end }}
+
+fish_add_path "{{$brew_prefix}}"
+fish_add_path "{{$brew_prefix}}/opt/gettext/bin"
+fish_add_path "{{$brew_prefix}}/opt/libiconv/bin"
+fish_add_path "{{$brew_prefix}}/opt/findutils/libexec/gnubin"
+fish_add_path "{{$brew_prefix}}/opt/coreutils/libexec/gnubin"
+fish_add_path "{{$brew_prefix}}/opt/grep/libexec/gnubin"
+fish_add_path "{{$brew_prefix}}/opt/ruby@2.7/bin"
+fish_add_path "{{$brew_prefix}}/opt/inetutils/libexec/gnubin"
+fish_add_path "{{$brew_prefix}}/bin/fish"
+
 {{ else if (eq .chezmoi.os "linux" ) }}
 if status --is-interactive
   set -gx HOMEBREW_PREFIX "/home/linuxbrew/.linuxbrew";
