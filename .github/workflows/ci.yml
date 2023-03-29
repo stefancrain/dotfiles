@@ -23,7 +23,7 @@ jobs:
           config_file: .github/lint/.yamllint.yml
 
       - name: markdownlint-cli
-        uses: nosborn/github-action-markdown-cli@v2.0.0
+        uses: nosborn/github-action-markdown-cli@v3.3.0
         with:
           files: .
           config_file: .github/lint/.markdownlint.yml
