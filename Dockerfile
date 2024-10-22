@@ -1,7 +1,7 @@
 # Base images
 #FROM codercom/code-server:3.11.1 as code-server 
 FROM codercom/code-server:3.8.1 as code-server
-FROM prom/prometheus:v2.29.2 as prom
+FROM prom/prometheus:v2.55.0 as prom
 FROM prom/alertmanager:v0.23.0 as prom-am
 
 ####################################### ---
